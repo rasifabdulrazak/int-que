@@ -140,5 +140,36 @@ def odd_or_even(nums:list):
 # print(odd_or_even([1,2,4,5,6]))
 
 # 16.List of Prime numbers
-def prime_numbers():
+def prime_numbers(limit:int)->list:
+    if limit < 2:return []
+    result_list = []
+    for i in range(2,limit):
+        print(i,"==========")
+        if limit%i!=0:
+            result_list.append(i)
+    return result_list
+
+# print(prime_numbers(10))
+
+# 17.Biggest odd number in a string:
+def biggest_odd(num:str):
+    list_of_num = [int(i) for i in num if int(i)%2!=0]
+    return max(list_of_num)
+# print(biggest_odd("1234589"))
+
+# 18.Zeros to end of list of integers with maintaining ascending order ex: [1,0,9,9] => [1,9,9,0]
+def zeros_last(nums):
     pass
+# print(zeros_last([1,0,9,9]))
+
+# 19. Hide Password and return charecter length
+def hide_password(password:str):
+    len_password = len(password)
+    return f'{len_password* "*" } Your password contain {len_password} charecters'
+
+# print(hide_password("rasif"))
+
+# 20. Thousand Seperator
+def thousand_seperator(num):
+    return f"{num:,}"
+print(thousand_seperator(10000000))

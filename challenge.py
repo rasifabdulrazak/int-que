@@ -44,4 +44,4 @@ def check_duplicates(sequence:list):
 
 # 5.Register Check . Check the dict where student is present and return the number of students present {"peter":"Yes","albin":"No","ebin":"Yes"}=>2
 def register_check(students:dict):
-
+    pass

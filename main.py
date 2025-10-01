@@ -1,4 +1,6 @@
 # This is a sample Python script.
+from traceback import print_tb
+
 
 # Press Ctrl+F5 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
@@ -169,8 +171,23 @@ def sum_of_two(nums,target):
 print(sum_of_two([1,2,3,9],6))
 # ======================================
 
-
-
+# -=======Bracket Pairs====================
+def bracket_pairs(string:str)->bool:
+    pairs = {"{":"}","[":"]","(":")"}
+    stack = []
+    if string=="":return False
+    for j,i in enumerate(string):
+        if i in pairs:
+            stack.append(i)
+            print(stack, "+++++++++++++++++",j)
+        elif i in pairs.values():
+            print(stack,"=============",j)
+            if not stack or pairs[stack.pop()]!=i:
+                return False
+    print(stack)
+    return not stack
+print(bracket_pairs(""))
+# ==============================
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':

@@ -2,7 +2,7 @@
 from traceback import print_tb
 
 
-def squareroot_or_reminder(number:int):
+def squarer_or_reminder(number:int):
     # check if number is divisible by 5
     import math
     if number%5==0:
@@ -11,7 +11,7 @@ def squareroot_or_reminder(number:int):
         return number%5
 
 
-# print(squareroot_or_reminder(10))
+# print(squarer_or_reminder(10))
 
 # 2.Longest value of a dictionary ex: {"fruit":"apple","color":"green"} => "apple"
 def longest_value(dic:dict):
@@ -49,14 +49,14 @@ def check_duplicates(sequence:list):
 def register_check(students:dict):
     return len([value for key,value in students.items() if value=="Yes"])
 
-# print(register_check({"peter":"Yes","albin":"No","ebin":"Yes"}))
+# print(register_check({"peter":"Yes","albin":"No","febrile":"Yes"}))
 
 # 6. Lower case names : from a list of mixed names return only lower case names in descending order
 def lowercase_descending(names:list):
     new_list = sorted([name for name in names if name.islower()],reverse=True)
     return new_list
 
-# print(lowercase_descending(["Name","rasif","abc"]))
+# print(lowercase_descending(["Name","massif","abc"]))
 
 # 7.Check if 2 numbers are float and return its count if its float : ex:2,5.6 =>1
 def only_floats(num1,num2):
@@ -73,9 +73,9 @@ def word_index(words:list):
             longest_word_index = i
     return longest_word_index
 
-# print(word_index(["inde","word","open"]))
+# print(word_index(["indie","word","open"]))
 
-# 9.Discoutn % of a price.Make 2 input from user as price and discoutn value.and return discount value
+# 9.Discount % of a price.Make 2 input from user as price and discount value.and return discount value
 
 def my_discount(price,discount):
     return price - (price * (discount/100))
@@ -84,17 +84,61 @@ def my_discount(price,discount):
 
 # 10. Tuple of student sex ex:["male","female"]=>[("male",1),("female",1)]
 def student_sex(list_of_sex:list):
-    result = []
+    result = {}
     for sex in list_of_sex:
-        print(sex,"======")
-        count = 0
-        for s in list_of_sex:
-            print(s,"+++++++++")
-            if s==sex:
-                count+=1
-        if (sex,count) not in result:
-            result.append((sex,count))
+        result[sex] = result.get(sex,0)+1
     return result
 
-# print(student_sex(["male","female"]))
+# print(student_sex(["male","female","male"]))
 
+# 11.Username generator from an email : ex:ben@gmail.com => ben
+def username_generator(email:str)->str:
+    name = email.split("@")
+    return name[0]
+
+# print(username_generator("rasif@gmail.com"))
+
+# 12. Zero both ends:
+def zero_end(nums:list)->list:
+    nums[0] ,nums[-1] = 0,0
+    return nums
+
+# print(zero_end([2,3,4,5,8]))
+
+# 13.String range : ex: 6 => "0.1.2.3.4.5"
+def string_range(num):
+    return ".".join([str(i) for i in range(num)])
+
+# print(string_range(5))
+
+# 14.Start with "S" and return its count in dictionary
+def start_with_s(names:list)->dict:
+    result_dict = {}
+    for name in names:
+        if name.lower().startswith("s"):
+            result_dict[name] = result_dict.get(name,0)+1
+    return result_dict
+
+# print(start_with_s(["sneha","sujith","lima","sneha"]))
+
+# 15.Odd or even
+def odd_or_even(nums:list):
+    # even_numbers = [i for i in nums if i%2==0]
+    # odd_numbers = [i for i in nums if i%2!=0]
+    # largets_even_number = max(even_numbers)
+    # smallest_odd_number = min(odd_numbers)
+    largets_even_number = None
+    smallest_odd_number = None
+    for num in nums:
+        if num%2==0:
+            if largets_even_number is None or num > largets_even_number:
+                largets_even_number = num
+        else:
+            if smallest_odd_number is None or num < smallest_odd_number:
+                smallest_odd_number = num
+    return largets_even_number - smallest_odd_number
+# print(odd_or_even([1,2,4,5,6]))
+
+# 16.List of Prime numbers
+def prime_numbers():
+    pass

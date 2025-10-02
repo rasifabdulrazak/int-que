@@ -159,17 +159,42 @@ def biggest_odd(num:str):
 
 # 18.Zeros to end of list of integers with maintaining ascending order ex: [1,0,9,9] => [1,9,9,0]
 def zeros_last(nums):
-    pass
-# print(zeros_last([1,0,9,9]))
+    numbers = sorted([num for num in nums if num!=0])
+    zeros = [0]*(len(nums)-len(numbers))
+    return numbers + zeros
+# print(zeros_last([1,0,9,9,8,0,0,0]))
 
-# 19. Hide Password and return charecter length
+# 19. Hide Password and return character length
 def hide_password(password:str):
     len_password = len(password)
-    return f'{len_password* "*" } Your password contain {len_password} charecters'
+    return f'{len_password * "*" } Your password contain {len_password} characters'
 
 # print(hide_password("rasif"))
 
 # 20. Thousand Seperator
 def thousand_seperator(num):
     return f"{num:,}"
-print(thousand_seperator(10000000))
+# print(thousand_seperator(10000000))
+
+# 21.Equal string : ex : love==olve => True
+def equal_string(string1:str,string2:str):
+    return sorted(string1) == sorted(string2)
+# print(equal_string("love","olve"))
+
+# 22.Swap numbers in list [1,2,3,4] => [4,2,3,1]
+def swap_numbers(nums:list):
+    nums[0],nums[-1] = nums[-1],nums[0]
+    return nums
+# print(swap_numbers([4,2,3,1,0]))
+
+# 23.count dots ex:hel.p. => 2
+def count_dots(string:str):
+    return string.count(".")
+# print(count_dots("hel.p."))
+
+# 24.Age in minutes
+def age_in_minutes(age):
+    if age < 1900 or age > 2025:
+        return "Please enter a correct age"
+
+print(age_in_minutes(1890))
